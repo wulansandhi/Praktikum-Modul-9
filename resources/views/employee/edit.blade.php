@@ -1,18 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width,
-initial-scale=1.0">
-    <title>{{ $pageTitle }}</title>
-    @vite('resources/sass/app.scss')
-</head>
-
-<body>
-    @extends('layouts.app')
-    @section('content')
+@extends('layouts.app')
+@section('content')
     <div class="container-sm mt-5">
         <form action="{{ route('employees.update', ['employee' => $employee->id]) }}" method="POST">
             @csrf
@@ -51,8 +38,7 @@ initial-scale=1.0">
                             <label for="email" class="form-label">Email</label>
                             <input class="form-control @error('email')
         is-invalid @enderror" type="text"
-                                name="email" id="email"
-                                value="{{ $errors->any() ? old('email') : $employee->email }}"
+                                name="email" id="email" value="{{ $errors->any() ? old('email') : $employee->email }}"
                                 placeholder="Enter Email">
                             @error('email')
                                 <div class="text-danger"><small>{{ $message }}</small></div>
@@ -62,8 +48,8 @@ initial-scale=1.0">
                             <label for="age" class="form-label">Age</label>
                             <input class="form-control @error('age')
         is-invalid @enderror" type="text"
-                                name="age" id="age"
-                                value="{{ $errors->any() ? old('age') : $employee->age }}" placeholder="Enter Age">
+                                name="age" id="age" value="{{ $errors->any() ? old('age') : $employee->age }}"
+                                placeholder="Enter Age">
                             @error('age')
                                 <div class="text-danger"><small>{{ $message }}</small></div>
                             @enderror
@@ -80,8 +66,7 @@ initial-scale=1.0">
                                     }
                                 @endphp
                                 @foreach ($positions as $position)
-                                    <option value="{{ $position->id }}"
-                                        {{ $selected == $position->id ? 'selected' : '' }}>
+                                    <option value="{{ $position->id }}" {{ $selected == $position->id ? 'selected' : '' }}>
                                         {{ $position->code . ' - ' . $position->name }}</option>
                                     </option>
                                 @endforeach
@@ -109,8 +94,4 @@ initial-scale=1.0">
         </form>
 
     </div>
-    @endsection
-    @vite('resources/js/app.js')
-</body>
-
-</html>
+@endsection

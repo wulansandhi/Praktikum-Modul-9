@@ -1,19 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width,
-initial-scale=1.0">
-    <title>{{ $pageTitle }}</title>
-    @vite('resources/sass/app.scss')
-</head>
-
-<body> 
-    @extends('layouts.app')
-    @section('content')
-
+@extends('layouts.app')
+@section('content')
     <div class="container-sm mt-5">
         <form action="{{ route('employees.store') }}" method="POST">
             @csrf
@@ -29,8 +15,8 @@ initial-scale=1.0">
                             <label for="firstName" class="form-label">First
                                 Name</label>
                             <input class="form-control @error('firstName')
-            is-invalid @enderror"
-                                type="text" name="firstName" id="firstName" value="{{ old('firstName') }}"
+            is-invalid @enderror" type="text"
+                                name="firstName" id="firstName" value="{{ old('firstName') }}"
                                 placeholder="Enter First Name">
                             @error('firstName')
                                 <div class="text-danger"><small>{{ $message }}</small></div>
@@ -40,9 +26,8 @@ initial-scale=1.0">
                             <label for="lastName" class="form-label">Last
                                 Name</label>
                             <input class="form-control @error('lastName')
-            is-invalid @enderror"
-                                type="text" name="lastName" id="lastName" value="{{ old('lastName') }}"
-                                placeholder="Enter Last Name">
+            is-invalid @enderror" type="text"
+                                name="lastName" id="lastName" value="{{ old('lastName') }}" placeholder="Enter Last Name">
                             @error('lastName')
                                 <div class="text-danger"><small>{{ $message }}</small></div>
                             @enderror
@@ -98,8 +83,4 @@ initial-scale=1.0">
             </div>
         </form>
     </div>
-    @endsection
-    @vite('resources/js/app.js')
-</body>
-
-</html>
+@endsection
